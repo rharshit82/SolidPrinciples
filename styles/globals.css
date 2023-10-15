@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Lato", sans-serif;
+  font-family: "PT Sans", sans-serif;
   font-style: normal;
   font-size: 0.694vw; /* 1000/1440 - 10px - 1rem*/
   /* scroll-behavior: smooth; */

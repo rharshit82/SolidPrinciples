@@ -7,6 +7,9 @@ const ContentWrapper = styled.div`
   main {
     min-height: 65vh;
   }
+  @media screen and (max-width: 769px) {
+    width: 100%;
+  }
 `;
 const Container = styled.div`
   display: flex;

@@ -3,10 +3,13 @@ import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 const Container = styled.div`
-  background: #e74c3c;
+  background: #FF594F;
   width: 15%;
   color: white;
   min-height: 100vh;
+  @media screen and (max-width: 769px){
+    display: none;
+  }
 `;
 const ImageContainer = styled.div`
   display: flex;

@@ -4,6 +4,7 @@ import Link from "next/link";
 import NextImage from "@/tokens/NextImage";
 
 const FooterContainer = styled.div`
+  margin-top: 4rem;
   background-color: hsl(218, 84%, 64%);
 `;
 
