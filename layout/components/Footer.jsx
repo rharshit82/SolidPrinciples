@@ -39,7 +39,7 @@ const FooterTextWrapper = styled.div`
   p {
     font-size: 1.6rem;
   }
-  @media screen and (max-width: 820px){
+  @media screen and (max-width: 820px) {
     font-size: 1.4rem;
     width: 100%;
   }
@@ -132,16 +132,19 @@ const Footer = () => {
         <FooterLinksContainer>
           <FooterTextWrapper>
             <p>
-              SolidPrinciples is a website dedicated to SOLID Principles. We want
-              to ensure developers really the understand SOLID Principles and
-              understand how to apply them in their code. It is both beginner
-              and intermediate level friendly.
+              SolidPrinciples is a website dedicated to SOLID Principles. We
+              want to ensure developers really the understand SOLID Principles
+              and understand how to apply them in their code. It is both
+              beginner and intermediate level friendly.
             </p>
           </FooterTextWrapper>
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Links</FooterLinkTitle>
               <FooterLink href='/about'>About Us</FooterLink>
+              <FooterLink href='https://github.com/rharshit82/SolidPrinciples'>
+                Contribute on Github
+              </FooterLink>
             </FooterLinkItems>
           </FooterLinksWrapper>
         </FooterLinksContainer>

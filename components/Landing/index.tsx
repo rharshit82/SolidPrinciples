@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import content from "./content.md";
+import intro from "./content.md";
 import MarkdownContent from "@/components/MarkdownContent";
 const Container = styled.div`
   padding-bottom: 4rem;
@@ -8,7 +8,7 @@ const Container = styled.div`
 const Landing: React.FC = () => {
   return (
     <Container>
-      <MarkdownContent content={content} />
+      <MarkdownContent content={intro} />
     </Container>
   );
 };
