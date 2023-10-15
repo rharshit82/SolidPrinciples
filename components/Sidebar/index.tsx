@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 const Container = styled.div`
   background: #e74c3c;
-  width: 25%;
+  width: 15%;
   color: white;
   min-height: 100vh;
 `;
@@ -20,8 +20,8 @@ const Sidebar = () => {
           <NextImage
             src='/assets/branding/solidprinciples.png'
             alt='Solid Principles'
-            height='20rem'
-            width='20rem'
+            height='15rem'
+            width='15rem'
           />
         </ImageContainer>
       </Link>

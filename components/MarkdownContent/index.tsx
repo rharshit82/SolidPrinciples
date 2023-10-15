@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Markdown from "markdown-to-jsx";
 
 const ContentContainer = styled.div`
-  max-width: 75vw;
+  max-width: 85vw;
   padding: 2rem 5rem;
   pre {
     white-space: normal !important;
