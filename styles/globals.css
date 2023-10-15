@@ -66,3 +66,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+code {
+  font-size: 1.6rem;
+}
+@media screen and (max-width: 769px) {
+  code {
+    font-size: 1rem;
+  }
+}
