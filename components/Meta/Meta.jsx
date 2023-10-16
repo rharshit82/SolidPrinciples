@@ -8,7 +8,6 @@ const Meta = ({ meta }) => {
                 <link rel="apple-touch-icon" sizes="180x180" href="/branding/solidprinciples.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/branding/solidprinciples.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="/branding/solidprinciples.png" />
-                <link rel="manifest" href="/site.webmanifest" />
                 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#111111" />
                 <meta name="msapplication-TileColor" content="#111111" />
                 <meta name="theme-color" content="#111111" />
