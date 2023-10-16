@@ -69,6 +69,7 @@ a {
 
 code {
   font-size: 1.6rem;
+  text-wrap: wrap!important;
 }
 @media screen and (max-width: 769px) {
   code {

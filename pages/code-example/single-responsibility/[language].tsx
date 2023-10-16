@@ -1,6 +1,7 @@
+import { useRouter } from "next/router";
 import CodeSnippet from "@/components/CodeSnippet";
 import styled from "styled-components";
-import { dataMapping } from "@/data/SingleResponsibility";
+import { dataMapping } from "@/data/SingleResponsibility"; // Adjust this import based on your actual data file's location and structure.
 import Link from "next/link";
 
 const Container = styled.div`
@@ -22,6 +23,20 @@ const CodeExampleContainer = styled.div`
     width: 100%;
   }
 `;
+
+type LanguageKey =
+  | "pseudocode"
+  | "javascript"
+  | "java"
+  | "python"
+  | "csharp"
+  | "php"
+  | "cpp"
+  | "go"
+  | "swift"
+  | "ruby"
+  | "rust";
+
 const LanguageTabsContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -47,10 +62,21 @@ const LanguageTab = styled(Link)<LanguageTabProps>`
     background-color: #0070f3;
   }
 `;
-export default function Home() {
+
+const LanguageSpecificPage = () => {
+  const router = useRouter();
+  const language: LanguageKey =
+    (router.query.language as LanguageKey) || "pseudocode";
+
+  const codeExamples = dataMapping[language];
+
+  if (!codeExamples) {
+    return <div>Code examples for the specified language not found.</div>;
+  }
+
   return (
     <Container>
-      <h2>Code Example</h2>
+      <h2>Code Example: {language.toUpperCase()}</h2>
       <LanguageTabsContainer>
         {[
           "pseudocode",
@@ -65,7 +91,7 @@ export default function Home() {
           "ruby",
           "rust",
         ].map((lang) => {
-          const isActive = lang === "pseudocode"; // Add your condition for active tab here based on your logic or URL
+          const isActive = lang === language; // Add your condition for active tab here based on your logic or URL
 
           return (
             <LanguageTab
@@ -85,13 +111,15 @@ export default function Home() {
       <CodesWrapper>
         <CodeExampleContainer>
           <h2>Without Single Responsibility Principle</h2>
-          <CodeSnippet codeString={dataMapping.pseudocode.without} />
+          <CodeSnippet codeString={codeExamples.without} />
         </CodeExampleContainer>
         <CodeExampleContainer>
           <h2>With Single Responsibility Principle</h2>
-          <CodeSnippet codeString={dataMapping.pseudocode.with} />
+          <CodeSnippet codeString={codeExamples.with} />
         </CodeExampleContainer>
       </CodesWrapper>
     </Container>
   );
-}
+};
+
+export default LanguageSpecificPage;

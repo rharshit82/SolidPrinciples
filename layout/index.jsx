@@ -6,6 +6,7 @@ const ContentWrapper = styled.div`
   width: 85%;
   main {
     min-height: 65vh;
+    padding: 2rem 5rem;
   }
   @media screen and (max-width: 769px) {
     width: 100%;
