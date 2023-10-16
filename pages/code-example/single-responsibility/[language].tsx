@@ -37,32 +37,34 @@ type LanguageKey =
   | "ruby"
   | "rust";
 
-const LanguageTabsContainer = styled.div`
+  const LanguageTabsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
-  margin-top: 20px;
   padding: 0;
+  row-gap: 1rem;
 `;
 type LanguageTabProps = {
   isActive: boolean;
 };
 const LanguageTab = styled(Link)<LanguageTabProps>`
   cursor: pointer;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   margin: 0 5px;
   display: inline-block;
   border-radius: 5px;
   color: #fff;
-  background-color: ${({ isActive }) => (isActive ? "#0070f3" : "#666")};
+  background-color: ${({ isActive }) => (isActive ? "#4CAF50" : "#9E9E9E")}; // green active, gray inactive
   transition: background-color 0.2s ease;
   text-decoration: none;
 
   &:hover {
     background-color: #0070f3;
   }
+  @media (max-width: 600px) {
+    font-size: 0.8rem;  // smaller font size for smaller screens
+    padding: 8px;  // even smaller padding
+  }
 `;
-
 const LanguageSpecificPage = () => {
   const router = useRouter();
   const language: LanguageKey =
