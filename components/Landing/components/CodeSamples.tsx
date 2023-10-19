@@ -2,6 +2,10 @@ import CodeSnippet from "@/components/CodeSnippet";
 import styled from "styled-components";
 import { dataMapping } from "@/data/SingleResponsibility";
 import Link from "next/link";
+import {
+  supportedLanguages,
+  principleUrlMapping,
+} from "@/data/constants/GlobalConstants";
 
 const Container = styled.div`
   h2 {
@@ -38,7 +42,7 @@ const LanguageTab = styled(Link)<LanguageTabProps>`
   display: inline-block;
   border-radius: 5px;
   color: #fff;
-  background-color: ${({ isActive }) => (isActive ? "#4CAF50" : "#9E9E9E")}; // green active, gray inactive
+  background-color: ${({ isActive }) => (isActive ? "#4CAF50" : "#9E9E9E")};
   transition: background-color 0.2s ease;
   text-decoration: none;
 
@@ -46,28 +50,19 @@ const LanguageTab = styled(Link)<LanguageTabProps>`
     background-color: #0070f3;
   }
   @media (max-width: 600px) {
-    font-size: 0.8rem;  // smaller font size for smaller screens
-    padding: 8px;  // even smaller padding
+    font-size: 0.8rem;
+    padding: 8px;
   }
 `;
-export default function Home() {
+type CodeSamplesProps = {
+  currentPrinciple: string;
+};
+const CodeSamples: React.FC<CodeSamplesProps> = ({ currentPrinciple }) => {
   return (
     <Container>
       <h2>Code Example</h2>
       <LanguageTabsContainer>
-        {[
-          "pseudocode",
-          "javascript",
-          "java",
-          "python",
-          "csharp",
-          "php",
-          "cpp",
-          "go",
-          "swift",
-          "ruby",
-          "rust",
-        ].map((lang) => {
+        {supportedLanguages.map((lang) => {
           const isActive = lang === "pseudocode"; // Add your condition for active tab here based on your logic or URL
 
           return (
@@ -76,7 +71,7 @@ export default function Home() {
               href={
                 lang === "pseudocode"
                   ? "/"
-                  : `/code-example/single-responsibility/${lang}`
+                  : `/code-example/${principleUrlMapping[currentPrinciple]}/${lang}`
               }
               isActive={isActive}
             >
@@ -97,4 +92,5 @@ export default function Home() {
       </CodesWrapper>
     </Container>
   );
-}
+};
+export default CodeSamples;

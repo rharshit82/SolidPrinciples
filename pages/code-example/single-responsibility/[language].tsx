@@ -3,7 +3,7 @@ import CodeSnippet from "@/components/CodeSnippet";
 import styled from "styled-components";
 import { dataMapping } from "@/data/SingleResponsibility"; // Adjust this import based on your actual data file's location and structure.
 import Link from "next/link";
-
+import { supportedLanguages } from "@/data/constants/GlobalConstants";
 const Container = styled.div`
   h2 {
     font-size: 2.5rem;
@@ -37,7 +37,7 @@ type LanguageKey =
   | "ruby"
   | "rust";
 
-  const LanguageTabsContainer = styled.div`
+const LanguageTabsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 0;
@@ -53,7 +53,8 @@ const LanguageTab = styled(Link)<LanguageTabProps>`
   display: inline-block;
   border-radius: 5px;
   color: #fff;
-  background-color: ${({ isActive }) => (isActive ? "#4CAF50" : "#9E9E9E")}; // green active, gray inactive
+  background-color: ${({ isActive }) =>
+    isActive ? "#4CAF50" : "#9E9E9E"}; // green active, gray inactive
   transition: background-color 0.2s ease;
   text-decoration: none;
 
@@ -61,8 +62,8 @@ const LanguageTab = styled(Link)<LanguageTabProps>`
     background-color: #0070f3;
   }
   @media (max-width: 600px) {
-    font-size: 0.8rem;  // smaller font size for smaller screens
-    padding: 8px;  // even smaller padding
+    font-size: 0.8rem; // smaller font size for smaller screens
+    padding: 8px; // even smaller padding
   }
 `;
 const LanguageSpecificPage = () => {
@@ -80,20 +81,8 @@ const LanguageSpecificPage = () => {
     <Container>
       <h2>Code Example: {language.toUpperCase()}</h2>
       <LanguageTabsContainer>
-        {[
-          "pseudocode",
-          "javascript",
-          "java",
-          "python",
-          "csharp",
-          "php",
-          "cpp",
-          "go",
-          "swift",
-          "ruby",
-          "rust",
-        ].map((lang) => {
-          const isActive = lang === language; // Add your condition for active tab here based on your logic or URL
+        {supportedLanguages.map((lang) => {
+          const isActive = lang === language;
 
           return (
             <LanguageTab
