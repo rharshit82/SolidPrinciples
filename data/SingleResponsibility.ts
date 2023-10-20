@@ -1091,50 +1091,27 @@ fn main() {
 }
 `;
 
-export const dataMapping = {
-  pseudocode: {
-    with: withSingleResponsibilityPseudoCode,
-    without: withoutSingleResponsibilityPseudoCode,
-  },
-  javascript: {
-    with: withSingleResponsibilityJavascript,
-    without: withoutSingleResponsibilityJavascript,
-  },
-  java: {
-    with: withSingleResponsibilityJava,
-    without: withoutSingleResponsibilityJava,
-  },
-  python: {
-    with: withSingleResponsibilityPython,
-    without: withoutSingleResponsibilityJava,
-  },
-
-  csharp: {
-    with: withSingleResponsibilityCHash,
-    without: withoutSingleResponsibilityCHash,
-  },
-  php: {
-    with: withSingleResponsibilityJava,
-    without: withoutSingleResponsibilityPHP,
-  },
-  cpp: {
-    with: withSingleResponsibilityJava,
-    without: withoutSingleResponsibilityCPP,
-  },
-  go: {
-    with: withSingleResponsibilityJava,
-    without: withoutSingleResponsibilityGo,
-  },
-  swift: {
-    with: withSingleResponsibilitySwift,
-    without: withoutSingleResponsibilitySwift,
-  },
-  ruby: {
-    with: withSingleResponsibilityRuby,
-    without: withoutSingleResponsibilityRuby,
-  },
-  rust: {
-    with: withSingleResponsibilityRust,
-    without: withoutSingleResponsibilityRust,
-  },
+export {
+  withSingleResponsibilityPseudoCode,
+  withSingleResponsibilityCHash,
+  withSingleResponsibilityCPP,
+  withSingleResponsibilityGo,
+  withSingleResponsibilityJava,
+  withSingleResponsibilityJavascript,
+  withSingleResponsibilityPHP,
+  withSingleResponsibilityPython,
+  withSingleResponsibilityRuby,
+  withSingleResponsibilityRust,
+  withSingleResponsibilitySwift,
+  withoutSingleResponsibilityCHash,
+  withoutSingleResponsibilityGo,
+  withoutSingleResponsibilityCPP,
+  withoutSingleResponsibilityJava,
+  withoutSingleResponsibilityJavascript,
+  withoutSingleResponsibilityPHP,
+  withoutSingleResponsibilityPseudoCode,
+  withoutSingleResponsibilityPython,
+  withoutSingleResponsibilityRust,
+  withoutSingleResponsibilitySwift,
+  withoutSingleResponsibilityRuby,
 };

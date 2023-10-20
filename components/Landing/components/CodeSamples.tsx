@@ -1,10 +1,10 @@
 import CodeSnippet from "@/components/CodeSnippet";
 import styled from "styled-components";
-import { dataMapping } from "@/data/SingleResponsibility";
+import { dataMapping } from "@/data/MappingConstants";
 import Link from "next/link";
 import {
   supportedLanguages,
-  principleUrlMapping,
+  urlNameMapping,
 } from "@/data/constants/GlobalConstants";
 
 const Container = styled.div`
@@ -56,41 +56,53 @@ const LanguageTab = styled(Link)<LanguageTabProps>`
 `;
 type CodeSamplesProps = {
   currentPrinciple: string;
+  currentLanguage: string;
 };
-const CodeSamples: React.FC<CodeSamplesProps> = ({ currentPrinciple }) => {
-  return (currentPrinciple && 
-    <Container>
-      <h2>Code Example</h2>
-      <LanguageTabsContainer>
-        {supportedLanguages.map((lang) => {
-          const isActive = lang === "pseudocode"; // Add your condition for active tab here based on your logic or URL
+const CodeSamples: React.FC<CodeSamplesProps> = ({
+  currentPrinciple,
+  currentLanguage,
+}) => {
+  return (
+    currentPrinciple && (
+      <Container>
+        <h2>Code Example</h2>
+        <LanguageTabsContainer>
+          {supportedLanguages.map((lang) => {
+            const isActive = lang === currentLanguage; // Add your condition for active tab here based on your logic or URL
 
-          return (
-            <LanguageTab
-              key={lang}
-              href={
-                lang === "pseudocode"
-                  ? "/"
-                  : `/code-example/${principleUrlMapping[currentPrinciple]}/${lang}`
+            return (
+              <LanguageTab
+                key={lang}
+                href={
+                  lang === "pseudocode"
+                    ? "/"
+                    : `/code-example/${currentPrinciple}/${lang}`
+                }
+                isActive={isActive}
+              >
+                {lang}
+              </LanguageTab>
+            );
+          })}
+        </LanguageTabsContainer>
+        <CodesWrapper>
+          <CodeExampleContainer>
+            <h2>Without {urlNameMapping[currentPrinciple]} Principle</h2>
+            <CodeSnippet
+              codeString={
+                dataMapping[currentPrinciple][currentLanguage].without
               }
-              isActive={isActive}
-            >
-              {lang}
-            </LanguageTab>
-          );
-        })}
-      </LanguageTabsContainer>
-      <CodesWrapper>
-        <CodeExampleContainer>
-          <h2>Without Single Responsibility Principle</h2>
-          <CodeSnippet codeString={dataMapping.pseudocode.without} />
-        </CodeExampleContainer>
-        <CodeExampleContainer>
-          <h2>With Single Responsibility Principle</h2>
-          <CodeSnippet codeString={dataMapping.pseudocode.with} />
-        </CodeExampleContainer>
-      </CodesWrapper>
-    </Container>
+            />
+          </CodeExampleContainer>
+          <CodeExampleContainer>
+            <h2>With {urlNameMapping[currentPrinciple]} Principle</h2>
+            <CodeSnippet
+              codeString={dataMapping[currentPrinciple][currentLanguage].with}
+            />
+          </CodeExampleContainer>
+        </CodesWrapper>
+      </Container>
+    )
   );
 };
 export default CodeSamples;

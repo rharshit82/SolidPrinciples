@@ -9,13 +9,20 @@ type Principle = "SRP" | "OCP" | "LSP" | "ISP" | "DIP";
 
 type LandingTypes = {
   currentPrinciple: string;
+  currentLanguage: string;
 };
-const Landing: React.FC<LandingTypes> = ({ currentPrinciple }) => {
+const Landing: React.FC<LandingTypes> = ({
+  currentPrinciple,
+  currentLanguage,
+}) => {
   return (
     <Container>
       <MarkdownContent content={intro} />
       <SolidPreview currentPrinciple={currentPrinciple} />
-      <CodeSamples currentPrinciple={currentPrinciple} />
+      <CodeSamples
+        currentPrinciple={currentPrinciple}
+        currentLanguage={currentLanguage}
+      />
     </Container>
   );
 };

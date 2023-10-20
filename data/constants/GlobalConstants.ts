@@ -25,3 +25,14 @@ export const principleUrlMapping: PrincipleUrlMapping = {
   ISP: "interface-segregation-principle",
   DIP: "dependency-inversion-principle",
 };
+
+type UrlNameMapping = {
+  [key: string]: string;
+};
+export const urlNameMapping: UrlNameMapping = {
+  "single-responsibility": "Single Responsibility",
+  "open-closed-principle": "Open Closed Principle",
+  "liskov-substition-principle": "Liskov Substitution Principle",
+  "interface-segregation-principle": "Interface Segregation Principle",
+  "dependency-inversion-principle": "Dependency Inversion Principle",
+};
