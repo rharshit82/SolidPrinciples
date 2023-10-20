@@ -90,7 +90,7 @@ const LanguageSpecificPage = () => {
               href={
                 lang === "pseudocode"
                   ? "/"
-                  : `/code-example/single-responsibility/${lang}`
+                  : `/code-example/dependency-inversion-principle/${lang}`
               }
               isActive={isActive}
             >

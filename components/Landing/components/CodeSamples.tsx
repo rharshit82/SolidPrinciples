@@ -58,7 +58,7 @@ type CodeSamplesProps = {
   currentPrinciple: string;
 };
 const CodeSamples: React.FC<CodeSamplesProps> = ({ currentPrinciple }) => {
-  return (
+  return (currentPrinciple && 
     <Container>
       <h2>Code Example</h2>
       <LanguageTabsContainer>

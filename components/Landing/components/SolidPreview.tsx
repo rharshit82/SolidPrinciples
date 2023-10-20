@@ -1,6 +1,6 @@
 import NextImage from "@/tokens/NextImage";
+import Link from "next/link";
 import styled from "styled-components";
-import React, { Dispatch, SetStateAction } from "react";
 
 const Container = styled.div`
   h3 {
@@ -60,48 +60,46 @@ const Row = styled.div`
     row-gap: 2rem;
   }
 `;
-type Principle = "SRP" | "OCP" | "LSP" | "ISP" | "DIP"; // Or import this from a shared types file
 
 type SolidPreviewProps = {
-  currentPrinciple: Principle;
-  setCurrentPrinciple: Dispatch<SetStateAction<Principle>>;
+  currentPrinciple: string;
 };
 
-const SolidPreview: React.FC<SolidPreviewProps> = ({
-  currentPrinciple,
-  setCurrentPrinciple,
-}) => {
-  const isSelected = (principle: Principle) => currentPrinciple === principle;
+const SolidPreview: React.FC<SolidPreviewProps> = ({ currentPrinciple }) => {
+  const isSelected = (principle: string) => currentPrinciple === principle;
   return (
     <Container>
       <Row>
-        <SingleResponsibility
-          isSelected={isSelected("SRP")}
-          onClick={() => setCurrentPrinciple("SRP")}
-        >
-          <h3>Single Responsibility</h3>
-          <p>
-            A class should do one thing and therefore it should have only a
-            single reason to change
-          </p>
-        </SingleResponsibility>
-        <OpenClosedPrinciple
-          isSelected={isSelected("OCP")}
-          onClick={() => setCurrentPrinciple("OCP")}
-        >
-          <h3>Open Closed Principle</h3>
-          <p>Classes should be open for extension and closed to modification</p>
-        </OpenClosedPrinciple>
-        <LiskovSubstitutionPrinciple
-          isSelected={isSelected("LSP")}
-          onClick={() => setCurrentPrinciple("LSP")}
-        >
-          <h3>Liskov Substitution Principle</h3>
-          <p>
-            Objects of a superclass shall be replaceable with objects of its
-            subclasses without breaking the application
-          </p>
-        </LiskovSubstitutionPrinciple>
+        <Link href='/code-example/single-responsibility'>
+          <SingleResponsibility
+            isSelected={isSelected("single-responsibility")}
+          >
+            <h3>Single Responsibility</h3>
+            <p>
+              A class should do one thing and therefore it should have only a
+              single reason to change
+            </p>
+          </SingleResponsibility>
+        </Link>
+        <Link href='/code-example/open-closed-principle'>
+          <OpenClosedPrinciple isSelected={isSelected("open-closed-principle")}>
+            <h3>Open Closed Principle</h3>
+            <p>
+              Classes should be open for extension and closed to modification
+            </p>
+          </OpenClosedPrinciple>
+        </Link>
+        <Link href='/code-example/liskov-substition-principle'>
+          <LiskovSubstitutionPrinciple
+            isSelected={isSelected("liskov-substition-principle")}
+          >
+            <h3>Liskov Substitution Principle</h3>
+            <p>
+              Objects of a superclass shall be replaceable with objects of its
+              subclasses without breaking the application
+            </p>
+          </LiskovSubstitutionPrinciple>
+        </Link>
       </Row>
       <NextImage
         src='/assets/coding_solid_principles.png'
@@ -111,27 +109,29 @@ const SolidPreview: React.FC<SolidPreviewProps> = ({
         margin='auto'
       />
       <Row>
-        <InterfaceSegregationPrinciple
-          isSelected={isSelected("ISP")}
-          onClick={() => setCurrentPrinciple("ISP")}
-        >
-          <h3>Interface Segregation Principle</h3>
-          <p>
-            Clients should not be forced to depend upon interfaces that they do
-            not use.
-          </p>
-        </InterfaceSegregationPrinciple>
-        <DependencyInversionPrinciple
-          isSelected={isSelected("DIP")}
-          onClick={() => setCurrentPrinciple("DIP")}
-        >
-          <h3>Dependency Inversion Principle</h3>
-          <p>
-            High-level modules should not depend on low-level modules. Both
-            should depend on abstractions. Abstractions should not depend on
-            details. Details should depend on abstractions.
-          </p>
-        </DependencyInversionPrinciple>
+        <Link href='/code-example/interface-segragation-principle'>
+          <InterfaceSegregationPrinciple
+            isSelected={isSelected("interface-segragation-principle")}
+          >
+            <h3>Interface Segregation Principle</h3>
+            <p>
+              Clients should not be forced to depend upon interfaces that they
+              do not use.
+            </p>
+          </InterfaceSegregationPrinciple>
+        </Link>
+        <Link href='/code-example/dependency-inversion-principle'>
+          <DependencyInversionPrinciple
+            isSelected={isSelected("dependency-inversion-principle")}
+          >
+            <h3>Dependency Inversion Principle</h3>
+            <p>
+              High-level modules should not depend on low-level modules. Both
+              should depend on abstractions. Abstractions should not depend on
+              details. Details should depend on abstractions.
+            </p>
+          </DependencyInversionPrinciple>
+        </Link>
       </Row>
     </Container>
   );

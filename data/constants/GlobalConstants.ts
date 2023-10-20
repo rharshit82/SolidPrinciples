@@ -21,7 +21,7 @@ type PrincipleUrlMapping = {
 export const principleUrlMapping: PrincipleUrlMapping = {
   SRP: "single-responsibility",
   OCP: "open-closed-principle",
-  LSP: "liskoc-substition-principle",
+  LSP: "liskov-substition-principle",
   ISP: "interface-segregation-principle",
   DIP: "dependency-inversion-principle",
 };
