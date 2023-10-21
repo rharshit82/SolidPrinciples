@@ -16,12 +16,13 @@ const Container = styled.div`
 const CodesWrapper = styled.div`
   display: flex;
   width: 100%;
+  column-gap: 2rem;
   @media screen and (max-width: 769px) {
     flex-direction: column;
   }
 `;
 const CodeExampleContainer = styled.div`
-  width: 50%;
+  width: 45%;
   @media screen and (max-width: 769px) {
     width: 100%;
   }

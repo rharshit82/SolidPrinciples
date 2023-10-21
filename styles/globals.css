@@ -69,7 +69,11 @@ a {
 
 code {
   font-size: 1.6rem;
-  text-wrap: wrap!important;
+  text-wrap: wrap !important;
+}
+pre {
+  overflow: hidden !important;
+  padding: 1rem !important;
 }
 @media screen and (max-width: 769px) {
   code {
