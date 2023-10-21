@@ -368,7 +368,7 @@ type LanguageExamples = {
   [key: string]: CodeExample;
 };
 
-type PrinciplesCodeExamples = Record<string, LanguageExamples>;
+type PrinciplesCodeExamples = Record<string, LanguageExamples | null>;
 export const dataMapping: PrinciplesCodeExamples = {
   [principleNames.SRP]: SingleResponsibilityData,
   [principleNames.OCP]: OpenClosedPrincipleData,

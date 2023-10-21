@@ -6,8 +6,8 @@ import CodeSamples from "./components/CodeSamples";
 const Container = styled.div``;
 
 type LandingTypes = {
-  currentPrinciple: string;
-  currentLanguage: string;
+  currentPrinciple: string | null;
+  currentLanguage: string | null;
 };
 const Landing: React.FC<LandingTypes> = ({
   currentPrinciple,

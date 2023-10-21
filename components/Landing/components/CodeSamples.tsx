@@ -55,20 +55,28 @@ const LanguageTab = styled(Link)<LanguageTabProps>`
   }
 `;
 type CodeSamplesProps = {
-  currentPrinciple: string;
-  currentLanguage: string;
+  currentPrinciple: string | null;
+  currentLanguage: string | null;
 };
 const CodeSamples: React.FC<CodeSamplesProps> = ({
   currentPrinciple,
   currentLanguage,
 }) => {
+  if (!currentPrinciple || !currentLanguage) {
+    return null;
+  }
+  const codeWithoutPrinciple =
+    dataMapping[currentPrinciple]?.[currentLanguage]?.without ?? "";
+  const codeWithPrinciple =
+    dataMapping[currentPrinciple]?.[currentLanguage]?.with ?? "";
+
   return (
     currentPrinciple && (
       <Container>
         <h2>Code Example</h2>
         <LanguageTabsContainer>
           {supportedLanguages.map((lang) => {
-            const isActive = lang === currentLanguage; // Add your condition for active tab here based on your logic or URL
+            const isActive = lang === currentLanguage;
 
             return (
               <LanguageTab
@@ -88,17 +96,11 @@ const CodeSamples: React.FC<CodeSamplesProps> = ({
         <CodesWrapper>
           <CodeExampleContainer>
             <h2>Without {urlNameMapping[currentPrinciple]} Principle</h2>
-            <CodeSnippet
-              codeString={
-                dataMapping[currentPrinciple][currentLanguage].without
-              }
-            />
+            <CodeSnippet codeString={codeWithoutPrinciple} />
           </CodeExampleContainer>
           <CodeExampleContainer>
             <h2>With {urlNameMapping[currentPrinciple]} Principle</h2>
-            <CodeSnippet
-              codeString={dataMapping[currentPrinciple][currentLanguage].with}
-            />
+            <CodeSnippet codeString={codeWithPrinciple} />
           </CodeExampleContainer>
         </CodesWrapper>
       </Container>

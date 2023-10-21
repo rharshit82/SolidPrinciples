@@ -62,7 +62,7 @@ const Row = styled.div`
 `;
 
 type SolidPreviewProps = {
-  currentPrinciple: string;
+  currentPrinciple: string | null;
 };
 
 const SolidPreview: React.FC<SolidPreviewProps> = ({ currentPrinciple }) => {
