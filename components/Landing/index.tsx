@@ -3,9 +3,7 @@ import intro from "./intro.md";
 import MarkdownContent from "@/components/MarkdownContent";
 import SolidPreview from "./components/SolidPreview";
 import CodeSamples from "./components/CodeSamples";
-import { useState } from "react";
 const Container = styled.div``;
-type Principle = "SRP" | "OCP" | "LSP" | "ISP" | "DIP";
 
 type LandingTypes = {
   currentPrinciple: string;

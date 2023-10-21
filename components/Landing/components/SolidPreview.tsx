@@ -89,9 +89,9 @@ const SolidPreview: React.FC<SolidPreviewProps> = ({ currentPrinciple }) => {
             </p>
           </OpenClosedPrinciple>
         </Link>
-        <Link href='/code-example/liskov-substition-principle'>
+        <Link href='/code-example/liskov-substitution-principle'>
           <LiskovSubstitutionPrinciple
-            isSelected={isSelected("liskov-substition-principle")}
+            isSelected={isSelected("liskov-substitution-principle")}
           >
             <h3>Liskov Substitution Principle</h3>
             <p>

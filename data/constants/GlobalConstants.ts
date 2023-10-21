@@ -12,16 +12,13 @@ export const supportedLanguages = [
   "rust",
 ];
 
-type PrincipleKeyType = "SRP" | "OCP" | "LSP" | "ISP" | "DIP";
-
-type PrincipleUrlMapping = {
-  [key in PrincipleKeyType]: string;
-} & { [key: string]: string | undefined };
-
-export const principleUrlMapping: PrincipleUrlMapping = {
+type PrincipleNamesType = {
+  [key: string]: string;
+};
+export const principleNames: PrincipleNamesType = {
   SRP: "single-responsibility",
   OCP: "open-closed-principle",
-  LSP: "liskov-substition-principle",
+  LSP: "liskov-substitution-principle",
   ISP: "interface-segregation-principle",
   DIP: "dependency-inversion-principle",
 };
@@ -29,10 +26,11 @@ export const principleUrlMapping: PrincipleUrlMapping = {
 type UrlNameMapping = {
   [key: string]: string;
 };
+
 export const urlNameMapping: UrlNameMapping = {
-  "single-responsibility": "Single Responsibility",
-  "open-closed-principle": "Open Closed Principle",
-  "liskov-substition-principle": "Liskov Substitution Principle",
-  "interface-segregation-principle": "Interface Segregation Principle",
-  "dependency-inversion-principle": "Dependency Inversion Principle",
+  [principleNames.SRP]: "Single Responsibility",
+  [principleNames.OCP]: "Open Closed Principle",
+  [principleNames.LSP]: "Liskov Substitution Principle",
+  [principleNames.ISP]: "Interface Segregation Principle",
+  [principleNames.DIP]: "Dependency Inversion Principle",
 };
