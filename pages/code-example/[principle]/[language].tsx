@@ -44,7 +44,7 @@ const Language: React.FC<LanguageTypes> = ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [];
-  for (let lang in supportedLanguages) {
+  for (let lang of supportedLanguages) {
     paths.push({
       params: { language: lang, principle: "single-responsibility" },
     });

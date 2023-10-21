@@ -1,13 +1,4 @@
- <!-- public/sitemap.xml -->
-   <xml version="1.0" encoding="UTF-8">
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <url>
-       <loc>https://solidprinciples.org</loc>
-       <lastmod>2023-10-15</lastmod>
-     </url>
-     <url>
-        <loc>https://solidprinciples.org/about</loc>
-        <lastmod>2023-10-15</lastmod>
-      </url>
-   </urlset>
-   </xml>
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap><loc>https://solidprinciples.org/sitemap-0.xml</loc></sitemap>
+</sitemapindex>
