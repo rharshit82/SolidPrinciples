@@ -1,22 +1,20 @@
-import React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ServerStyleSheet } from "styled-components";
-
-// config
-import { adWordId, gtmId } from "../constants/config";
+import React from 'react';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
+
     try {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
             sheet.collectStyles(<App {...props} />),
         });
-      const initialProps = await Document.getInitialProps(ctx);
 
+      const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
         styles: (
@@ -33,12 +31,12 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang='en'>
+      <Html lang="en">
         <Head>
-          <link rel='shortcut icon' href='/favicon.ico' />
+          <link rel="shortcut icon" href="/favicon.ico" />
           <meta
-            name='google-site-verification'
-            content='FtxIPNPERtlxK4pUosWhuhhogHWZfYxTqfcNekps-ww'
+            name="google-site-verification"
+            content="FtxIPNPERtlxK4pUosWhuhhogHWZfYxTqfcNekps-ww"
           />
         </Head>
         <body>
