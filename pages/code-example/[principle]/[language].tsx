@@ -4,32 +4,34 @@ import ErrorBoundaryPage from "@/components/Error/ErrorBoundaryPage";
 import { supportedLanguages } from "@/data/constants/GlobalConstants";
 import { GetStaticPropsContext, GetStaticPaths } from "next";
 
-const meta = {
-  pageTitle:
-    "SolidPrinciples.org - Mastering SOLID Principles in Software Design",
-  description:
-    "Welcome to SolidPrinciples.org, the go-to hub for understanding SOLID principles in software development. Embark on a journey to better coding practices and robust software design with our comprehensive guides.",
-  keywords:
-    "SOLID principles, software design, coding best practices, object-oriented programming, software architecture, design principles",
-  author: "SolidPrinciples.org Team",
-  og_title:
-    "SolidPrinciples.org - Mastering SOLID Principles in Software Design",
-  og_description:
-    "Dive into SOLID principles with SolidPrinciples.org. Enhance your software design skills, embrace best coding practices, and elevate your developer journey.",
-  og_url: "https://www.SolidPrinciples.org/",
-  twitter_title:
-    "SolidPrinciples.org - Mastering SOLID Principles in Software Design",
-  twitter_description:
-    "Unlock the power of SOLID principles with SolidPrinciples.org. A treasure trove of knowledge for every developer aiming for excellence.",
+const generateMeta = (principle: string, language: string) => {
+  const capitalizedPrinciple =
+    principle.charAt(0).toUpperCase() + principle.slice(1).replace(/-/g, " ");
+
+  return {
+    pageTitle: `SolidPrinciples.org - ${capitalizedPrinciple} in ${language}`,
+    description: `Explore the ${capitalizedPrinciple} with examples in ${language}. Dive into detailed discussions and enhance your software design skills with SolidPrinciples.org.`,
+    keywords: `${capitalizedPrinciple}, ${language}, software design, coding best practices, object-oriented programming, software architecture`,
+    author: "SolidPrinciples.org Team",
+    og_title: `SolidPrinciples.org - Understanding ${capitalizedPrinciple} in ${language}`,
+    og_description: `Deepen your understanding of the ${capitalizedPrinciple} with practical examples in ${language}. Start your journey towards better software design with SolidPrinciples.org.`,
+    og_url: `https://www.SolidPrinciples.org/${principle}/${language}`,
+    twitter_title: `Learn ${capitalizedPrinciple} in ${language} with SolidPrinciples.org`,
+    twitter_description: `Grasp the essentials of ${capitalizedPrinciple} through comprehensive examples in ${language}. Elevate your coding practices with SolidPrinciples.org.`,
+  };
 };
+
 type LanguageTypes = {
   currentPrinciple: string;
   currentLanguage: string;
 };
+
 const Language: React.FC<LanguageTypes> = ({
   currentPrinciple,
   currentLanguage,
 }) => {
+  const meta = generateMeta(currentPrinciple, currentLanguage);
+
   return (
     <ErrorBoundaryPage>
       <Meta meta={meta} />
@@ -41,7 +43,6 @@ const Language: React.FC<LanguageTypes> = ({
     </ErrorBoundaryPage>
   );
 };
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [];
   for (let lang of supportedLanguages) {
