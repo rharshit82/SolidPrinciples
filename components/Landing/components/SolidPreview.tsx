@@ -1,7 +1,7 @@
 import NextImage from "@/tokens/NextImage";
 import Link from "next/link";
 import styled from "styled-components";
-
+import { principleNames } from "@/data/constants/GlobalConstants";
 const Container = styled.div`
   h3 {
     font-size: 2rem;
@@ -70,10 +70,8 @@ const SolidPreview: React.FC<SolidPreviewProps> = ({ currentPrinciple }) => {
   return (
     <Container>
       <Row>
-        <Link href='/code-example/single-responsibility'>
-          <SingleResponsibility
-            isSelected={isSelected("single-responsibility")}
-          >
+        <Link href={`/code-example/${principleNames.SRP}`}>
+          <SingleResponsibility isSelected={isSelected(principleNames.SRP)}>
             <h3>Single Responsibility</h3>
             <p>
               A class should do one thing and therefore it should have only a
@@ -81,17 +79,17 @@ const SolidPreview: React.FC<SolidPreviewProps> = ({ currentPrinciple }) => {
             </p>
           </SingleResponsibility>
         </Link>
-        <Link href='/code-example/open-closed-principle'>
-          <OpenClosedPrinciple isSelected={isSelected("open-closed-principle")}>
+        <Link href={`/code-example/${principleNames.OCP}`}>
+          <OpenClosedPrinciple isSelected={isSelected(principleNames.OCP)}>
             <h3>Open Closed Principle</h3>
             <p>
               Classes should be open for extension and closed to modification
             </p>
           </OpenClosedPrinciple>
         </Link>
-        <Link href='/code-example/liskov-substitution-principle'>
+        <Link href={`/code-example/${principleNames.LSP}`}>
           <LiskovSubstitutionPrinciple
-            isSelected={isSelected("liskov-substitution-principle")}
+            isSelected={isSelected(principleNames.LSP)}
           >
             <h3>Liskov Substitution Principle</h3>
             <p>
@@ -109,9 +107,9 @@ const SolidPreview: React.FC<SolidPreviewProps> = ({ currentPrinciple }) => {
         margin='auto'
       />
       <Row>
-        <Link href='/code-example/interface-segragation-principle'>
+        <Link href={`/code-example/${principleNames.ISP}`}>
           <InterfaceSegregationPrinciple
-            isSelected={isSelected("interface-segragation-principle")}
+            isSelected={isSelected(principleNames.ISP)}
           >
             <h3>Interface Segregation Principle</h3>
             <p>
@@ -120,9 +118,9 @@ const SolidPreview: React.FC<SolidPreviewProps> = ({ currentPrinciple }) => {
             </p>
           </InterfaceSegregationPrinciple>
         </Link>
-        <Link href='/code-example/dependency-inversion-principle'>
+        <Link href={`/code-example/${principleNames.DIP}`}>
           <DependencyInversionPrinciple
-            isSelected={isSelected("dependency-inversion-principle")}
+            isSelected={isSelected(principleNames.DIP)}
           >
             <h3>Dependency Inversion Principle</h3>
             <p>

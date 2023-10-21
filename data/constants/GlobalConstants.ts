@@ -12,8 +12,12 @@ export const supportedLanguages = [
   "rust",
 ];
 
-type PrincipleNamesType = {
-  [key: string]: string;
+export type PrincipleNamesType = {
+  SRP: "single-responsibility";
+  OCP: "open-closed-principle";
+  LSP: "liskov-substitution-principle";
+  ISP: "interface-segregation-principle";
+  DIP: "dependency-inversion-principle";
 };
 export const principleNames: PrincipleNamesType = {
   SRP: "single-responsibility",
