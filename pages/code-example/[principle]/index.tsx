@@ -27,7 +27,7 @@ const generatePrincipleMeta = (principle : string) => {
     urlNameMapping[principle]
 
   return {
-    pageTitle: `SolidPrinciples.org - ${formattedPrinciple} Principle Explained`,
+    pageTitle: `${formattedPrinciple} Principle Explained - SolidPrinciples.org `,
     description: `Delve into the ${formattedPrinciple} Principle with illustrative pseudocode examples. Enhance your software design skills and understand the core of effective system architecture with SolidPrinciples.org.`,
     keywords: `${formattedPrinciple}, SOLID principles, software design, coding best practices, pseudocode examples, object-oriented programming, software architecture`,
     author: "SolidPrinciples.org Team",

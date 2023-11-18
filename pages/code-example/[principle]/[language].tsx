@@ -9,7 +9,7 @@ const generateMeta = (principle: string, language: string) => {
     principle.charAt(0).toUpperCase() + principle.slice(1).replace(/-/g, " ");
 
   return {
-    pageTitle: `SolidPrinciples.org - ${capitalizedPrinciple} in ${language}`,
+    pageTitle: `${capitalizedPrinciple} in ${language} - SolidPrinciples.org `,
     description: `Explore the ${capitalizedPrinciple} with examples in ${language}. Dive into detailed discussions and enhance your software design skills with SolidPrinciples.org.`,
     keywords: `${capitalizedPrinciple}, ${language}, software design, coding best practices, object-oriented programming, software architecture`,
     author: "SolidPrinciples.org Team",
