@@ -8,9 +8,7 @@ import {
 } from "@/data/constants/GlobalConstants";
 
 const Container = styled.div`
-  h2 {
-    font-size: 2.5rem;
-  }
+  font-size: 2rem;
 `;
 
 const CodesWrapper = styled.div`

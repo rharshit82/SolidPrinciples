@@ -27,6 +27,14 @@ export const principleNames: PrincipleNamesType = {
   DIP: "dependency-inversion-principle",
 };
 
+export const reversePrincipleNamesMapping: {
+  [key: string]: keyof PrincipleNamesType;
+} = Object.keys(principleNames).reduce((acc, key) => {
+  const principleName = principleNames[key as keyof PrincipleNamesType];
+  acc[principleName] = key as keyof PrincipleNamesType;
+  return acc;
+}, {} as { [key: string]: keyof PrincipleNamesType });
+
 type UrlNameMapping = {
   [key: string]: string;
 };
